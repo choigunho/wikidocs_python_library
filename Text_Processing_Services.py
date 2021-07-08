@@ -1,14 +1,19 @@
 import random, itertools
+import textwrap
 import unittest
+
+'''
+https://wikidocs.net/book/5445
+'''
 
 
 class PrologLists(unittest.TestCase):
-    def test_1_1(self):
-        def last(li):
-            return li[-1]
+    def test_01_01(self):
+        def shorten(text):
+            return textwrap.shorten(text, width=15, placeholder="...")
 
-        self.assertEquals(5, last([1, 2, 3, 4, 5]))
-        self.assertEquals(-5, last([-1, -2, -3, -4, -5]))
+        self.assertEqual("Life is too...", shorten("Life is too short, you need python"))
+        self.assertEqual("Hello World", shorten("Hello World"))
 
 
 if __name__ == "__main__":
